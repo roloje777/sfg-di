@@ -10,9 +10,9 @@ as "an operation offered as an interface that stands alone
 in the model, with no encapsulated state."
  */
 @Service
-public class GreetingServiceImpl implements GreetingService{
+public class ConstructorGreetingService implements GreetingService{
     @Override
     public String sayGreeting() {
-        return "Hello world";
+        return "Hello world - constructor";
     }
 }
