@@ -23,8 +23,8 @@ public class SfgDiApplication {
 	     */
 		MyController myController = (MyController)ctx.getBean("myController");
 
-		String greeting = myController.sayHello();
-		System.out.println(greeting);
+		System.out.println("------ Primary Bean");
+		System.out.println(myController.sayHello());
 
 		/*
 		  example of Spring managed dependency injections
