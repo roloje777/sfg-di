@@ -18,7 +18,6 @@ import org.springframework.context.annotation.*;
    and the resources folder is added to the jar file
 
  */
-@PropertySource("classpath:datasource.properties")
 @ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreeingServiceConfig {
