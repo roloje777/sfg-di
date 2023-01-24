@@ -1,7 +1,27 @@
-  spring:
-    profiles:
-      active: dog,EN,dev
-  guru:
-    username: YmlUserName
-    password: YmlPassword
-    jdbcurl: YmlUrl
+spring:
+  profiles:
+    #active: dog,EN,dev
+    # One can use comma seperated or the yaml list below
+    active:
+      -  dog
+      -  EN
+      -  prod
+
+guru:
+  username: YmlUserName
+  password: YmlPassword
+  jdbcurl: YmlUrl
+
+    # three dashes like this, this actually says it's another configuration file.
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+guru:
+  username: YmlProdUserName
+  password: YmlProdPassword
+  jdbcurl: YmlProdUrl
