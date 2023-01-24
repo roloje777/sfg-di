@@ -33,14 +33,11 @@ public class GreeingServiceConfig {
        injects the values from the properties file
      */
     @Bean
-    FakeDataSource fakeDataSource(@Value("${guru.username}")String username,
-                                  @Value("${guru.password}")String password,
-                                  @Value("${guru.jdbcurl}")String jdbUrl){
+    FakeDataSource fakeDataSource(SfgConfiguration sfgConfiguration){
         FakeDataSource fakeDataSource = new FakeDataSource();
-        fakeDataSource.setUsername(username);
-        fakeDataSource.setPassword(password);
-        fakeDataSource.setJdbUrl(jdbUrl);
-
+        fakeDataSource.setUsername(sfgConfiguration.getUsername());
+        fakeDataSource.setPassword(sfgConfiguration.getPassword());
+        fakeDataSource.setJdbUrl(sfgConfiguration.getJdbcurl());
         return fakeDataSource;
     }
 
