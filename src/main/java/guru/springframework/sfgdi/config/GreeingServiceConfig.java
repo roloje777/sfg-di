@@ -23,14 +23,8 @@ import org.springframework.context.annotation.*;
 public class GreeingServiceConfig {
 
     /*
-       This bean will configure the
-       datasource properties via the configuration
-       on startup.
-       see @PropertySource("classpath:datasource.properties")
-       and @Value("${guru.name}")String userName,
-                                  @Value("${guru.password}")String password,
-                                  @Value("{guru.jdbcurl}")String jdbUrl
-       injects the values from the properties file
+      Here I use the SFGConfigurations.java Object
+      to get the properties values that was injected at runtime
      */
     @Bean
     FakeDataSource fakeDataSource(SfgConfiguration sfgConfiguration){
