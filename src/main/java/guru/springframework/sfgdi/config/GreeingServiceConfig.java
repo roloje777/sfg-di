@@ -8,6 +8,7 @@ import guru.springframework.sfgdi.repositories.EnglishGreetingRepositoryImpl;
 import guru.springframework.sfgdi.services.*;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
 
 /*
@@ -18,16 +19,22 @@ import org.springframework.context.annotation.*;
    and the resources folder is added to the jar file
 
  */
+
+@EnableConfigurationProperties(SfgConstructorConfig.class)
 @ImportResource("classpath:sfgdi-config.xml")
 @Configuration
 public class GreeingServiceConfig {
 
     /*
-      Here I use the SFGConfigurations.java Object
+      Here I use the SfgConstructorConfig .java Object
       to get the properties values that was injected at runtime
+
+      Note the Annotation
+       @EnableConfigurationProperties(SfgConstructorConfig.class)
+       Spring context will pick this up....
      */
     @Bean
-    FakeDataSource fakeDataSource(SfgConfiguration sfgConfiguration){
+    FakeDataSource fakeDataSource(SfgConstructorConfig sfgConfiguration){
         FakeDataSource fakeDataSource = new FakeDataSource();
         fakeDataSource.setUsername(sfgConfiguration.getUsername());
         fakeDataSource.setPassword(sfgConfiguration.getPassword());
